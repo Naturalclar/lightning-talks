@@ -4,143 +4,223 @@ import {
   Step,
 } from "code-surfer";
 import { github, vsDark } from "@code-surfer/themes";
+import { Notes, Head, Appear } from "mdx-deck";
+import { Meta, Profile } from './src'
+import ReactNative from './react-native.png'
+import RNHelloWorld from './images/rn-hello-world.png'
+import RNHelloWorldStyled from './images/rn-hello-world-styled.png'
+import RNButton from './images/rn-button.png'
+import RNButtonStyled from './images/rn-button-styled.png'
 
 export const theme = vsDark;
 
-# Hello 👋
+<Head>
+  <Meta
+    title="starting-react-native-2020"
+    description="Enter description here"
+    publishedAt={"2020-04-24T14:46:16.704Z"}
+    host="https://starting-react-native-2020.naturalclar.now.sh"
+  />
+</Head>
 
-You are using [MDX Deck](https://github.com/jxnblk/mdx-deck) and [Code Surfer](https://codesurfer.pomb.us)
 
----
+## これからはじめる React Native
 
-<CodeSurfer>
+<img src={ReactNative} width='50%'/>
 
-```js title="This is a title" subtitle="and this a subtitle"
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
-}
-
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
-
-  if (!sit || ut < 1) {
-    return [];
-  }
-
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
-```
-
-```js
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
-}
-
-function adipiscing(...elit) {
-  if (!elit.sit) {
-    return [];
-  }
-
-  const sed = elit[0];
-  return eiusmod.tempor(sed) ? sed : [sed];
-}
-
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
-
-  if (!sit || ut < 1) {
-    return [];
-  }
-
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
-```
-
-```diff 1[10:14],2[15:19],3[22:27],10:12
-
-```
-
-</CodeSurfer>
+[フロントエンドオンラインLT会](https://connpass.com/event/171666/)
+@naturalclar
 
 ---
 
-<CodeSurferColumns themes={[vsDark, github]}>
+<Profile/>
+
+---
+
+# React Native
+
+---
+
+<CodeSurferColumns themes={[github,vsDark]}>
 
 <Step>
 
-```js
-const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
+```jsx
+import React from 'react'
+
+export const HelloWorld = () => {
+  return (
+    <div className="container">
+      <h1>Hello World!</h1>
+    </div>
+  )
+}
+
 ```
 
-```js
-const minim = (ad, enim) => dolore.magna(ad / enim);
-```
+<div>
+  <h1>Hello World!</h1>
+</div>
 
 </Step>
 
 <Step>
 
-```js
-const lorem = (ipsum, dolor, sit) => {
-  const amet = dolor - ipsum;
-  return consectetur.adipiscing(
-    {
-      elit: sed.eiusmod(sit - dolor) / amet + 2,
-    },
-    (tempor, incididunt) => ipsum + amet * incididunt
-  );
-};
 
-const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
+```jsx
+import React from 'react'
+import {View, Text} from 'react-native'
+
+export const HelloWorld = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Hello World!</Text>
+    </View>
+  )
+}
+
 ```
 
-```js
-const minim = (ad, enim) => dolore.magna(ad / enim);
+<img src={RNHelloWorld} width='50%'/>
 
-const sed = (eiusmod, tempor, incididunt) => {
-  const ut = tempor - eiusmod;
-  return labore.et(
-    {
-      amet: dolore.magna(incididunt - tempor) / ut + 2,
-    },
-    (aliqua, elit) => eiusmod + ut * elit
-  );
-};
+
+
+</Step>
+
+<Step>
+
+
+```jsx
+import React from 'react'
+import {View, Text, StyleSheet} from 'react-native'
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 24,
+    borderWidth: 1,
+    borderColor: 'red'
+  },
+  text: {
+    fontSize: 24,
+    color: 'blue',
+    fontWeight: 'bold'
+  }
+})
+
+export const HelloWorld = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Hello World!</Text>
+    </View>
+  )
+}
+
 ```
+
+<img src={RNHelloWorldStyled} width='50%'/>
+
+</Step>
+
+<Step>
+
+
+```jsx 1:14
+import React from 'react'
+
+export const Button = () => {
+  const handleClick = () => {
+    console.log('hello world!')
+  }
+  return (
+    <button onClick={handleClick}>
+      <h1>Click Me!</h1>
+    </button>
+  )
+}
+```
+
+<button>Click Me!</button>
+
+</Step>
+
+<Step>
+
+
+```jsx 8:10
+import React from 'react'
+
+export const Button = () => {
+  const handleClick = () => {
+    console.log('hello world!')
+  }
+  return (
+    <button onClick={handleClick}>
+      <h1>Click Me!</h1>
+    </button>
+  )
+}
+```
+
+<button>Click Me!</button>
+
+</Step>
+
+<Step>
+
+
+```jsx
+import React from 'react'
+import {TouchableOpacity, Text} from 'react-native'
+
+export const Button = () => {
+  const handleClick = () => {
+    console.log('hello world!')
+  }
+  return (
+    <TouchableOpacity onPress={handleClick}>
+      <Text>Click Me!</Text>
+    </TouchableOpacity>
+  )
+}
+```
+
+<img src={RNButton} width='50%'/>
+
+</Step>
+
+<Step>
+
+
+```jsx
+import React from 'react'
+import {TouchableOpacity, Text, StyleSheet} from 'react-native'
+
+const styles = {
+  container:{
+    padding: 24,
+    borderRadius: 10,
+    backgroundColor: 'blue',
+  },
+  text: {
+    color: 'white'
+    fontSize: 24,
+    fontWeight: 'bold'
+  }
+}
+
+export const Button = () => {
+  const handleClick = () => {
+    console.log('hello world!')
+  }
+  return (
+    <TouchableOpacity style={styles.container} onPress={handleClick}>
+      <Text style={{styles.text}}>Click Me!</Text>
+    </TouchableOpacity>
+  )
+}
+```
+
+<img src={RNButtonStyled} width='50%'/>
 
 </Step>
 
@@ -148,5 +228,4 @@ const sed = (eiusmod, tempor, incididunt) => {
 
 ---
 
-docs:  
-[codesurfer.pomb.us](https://codesurfer.pomb.us)
+THANK YOU
