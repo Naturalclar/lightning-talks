@@ -11,8 +11,12 @@ import RNHelloWorld from './images/rn-hello-world.png'
 import RNHelloWorldStyled from './images/rn-hello-world-styled.png'
 import RNButton from './images/rn-button.png'
 import RNButtonStyled from './images/rn-button-styled.png'
+import RNPlatform from './images/rn-platform.png'
+import RNActivityIndicator from './images/rn-activity-indicator.png'
+import RNWebView from './images/rn-webview.png'
+import RNSafeAreaView from './images/rn-safe-area-view.png'
 import WhosUsingRN from './images/who-is-using-rn.png'
-import {View, Text, TouchableOpacity} from 'react-native-web'
+import {View, Text, TouchableOpacity, Platform, ActivityIndicator} from 'react-native-web'
 
 export const theme = vsDark;
 
@@ -75,7 +79,8 @@ export const theme = vsDark;
 ## 今回話すこと
 
 - React との類似点、違い
-- はじめかた
+- React Native 独自の API
+- React Native のはじめかた
 - and more...
 
 ---
@@ -112,8 +117,8 @@ import {View, Text} from 'react-native'
 
 export const HelloWorld = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello World!</Text>
+    <View>
+      <Text>Hello World!</Text>
     </View>
   )
 }
@@ -263,7 +268,103 @@ export const Button = () => {
 
 </Step>
 
+
+<Step>
+
+
+```jsx subtitle="Platform API"
+import React from 'react'
+import {View, Text, Platform} from 'react-native'
+
+export const WhoAmI = () => {
+  const platform = Platform.OS
+  return (
+    <View style={styles.container}>
+      <Text style={{styles.text}}>I am {platform}!</Text>
+    </View>
+  )
+}
+```
+
+<img src={RNPlatform} width='50%'/>
+
+</Step>
+
+<Step>
+
+```jsx subtitle="Activity Indicator"
+import React from 'react'
+import {View, Text, ActivityIndicator} from 'react-native'
+
+export const LoadingScreen = () => {
+  return (
+    <View style={styles.container}>
+      <ActivityIndicator size="large"/>
+    </View>
+  )
+}
+```
+
+<img src={RNActivityIndicator} width='50%'/>
+
+</Step>
+
+<Step>
+
+```jsx subtitle="SafeAreaView"
+import React from 'react'
+import {SafeAreaView, Text} from 'react-native'
+
+export const SafeAreaScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Text>I'm not in SafeArea</Text>
+      <SafeAreaView style={styles.container}>
+        <Text>I'm In SafeArea!</Text>
+        <View style={{flex:1}} />
+        <Text>I'm In SafeArea!</Text>
+      </SafeAreaView>
+      <Text>I'm not in SafeArea</Text>
+    </View>
+  )
+}
+```
+
+<img src={RNSafeAreaView} width='50%'/>
+
+</Step>
+
+<Step>
+
+```jsx subtitle="WebView"
+import React from 'react'
+import {SafeAreaView} from 'react-native'
+import {WebView} from 'react-native-webview'
+
+export const LoadingScreen = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <WebView source={{uri: 'https://reactnative.dev/'}} />
+    </SafeAreaView>
+  )
+}
+```
+
+<img src={RNWebView} width='50%'/>
+
+</Step>
+
 </CodeSurferColumns>
+
+---
+
+## 他にも様々な Modules があります!
+
+- AsyncStorage
+- Cameraroll
+- Clipboard
+- Bluetooth
+- etc...
 
 ---
 
@@ -332,6 +433,18 @@ export const Button = () => {
 </Step>
 
 </CodeSurferColumns>
+
+---
+
+## どっちが良いの？
+
+- はじめて触る場合は Expo の方がおすすめ。
+- 個人的には本家 React Native も十分快適。
+- Expo は必要とあれば Eject できる。
+
+---
+
+## React Native をはじめてみよう！
 
 ---
 
@@ -452,8 +565,69 @@ export const Button = () => {
 </Step>
 
 
-</CodeSurferColumns>
+<Step>
 
+```jsx subtitle="Platform API"
+import React from 'react'
+import {View, Text, Platform} from 'react-native'
+
+export const WhoAmI = () => {
+  const platform = Platform.OS
+  return (
+    <View style={styles.container}>
+      <Text style={{styles.text}}>I am {platform}!</Text>
+    </View>
+  )
+}
+```
+
+<View style={{padding:24}} onPress={()=>{}}>
+  <Text style={{color:'white', fontSize: 24, fontWeight: 'bold'}}>I am {Platform.OS}!</Text>
+</View>
+
+
+</Step>
+
+<Step>
+
+```jsx subtitle="Activity Indicator"
+import React from 'react'
+import {View, Text, ActivityIndicator} from 'react-native'
+
+export const LoadingScreen = () => {
+  return (
+    <View style={styles.container}>
+      <ActivityIndicator size="large"/>
+    </View>
+  )
+}
+```
+
+<ActivityIndicator size="large"/>
+
+</Step>
+
+<Step>
+
+```jsx subtitle="WebView...?"
+import React from 'react'
+import {SafeAreaView} from 'react-native'
+import {WebView} from 'react-native-webview'
+
+export const LoadingScreen = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <WebView source={{uri: 'https://reactnative.dev/'}} />
+    </SafeAreaView>
+  )
+}
+```
+
+:thinking_face::thinking_face::thinking_face:
+
+</Step>
+
+</CodeSurferColumns>
 
 ---
 
@@ -479,7 +653,5 @@ Developed by Microsoft
 </CodeSurferColumns>
 
 ---
-
-
 
 THANK YOU
