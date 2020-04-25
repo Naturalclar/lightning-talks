@@ -4,11 +4,12 @@
   "scripts": {
     "start": "mdx-deck deck.mdx",
     "build": "mdx-deck build deck.mdx",
-    "test": "echo \"there are no tests\""
+    "deploy": "now"
   },
   "devDependencies": {
     "code-surfer": "3.1.0",
     "mdx-deck": "3.0.13",
+    "now": "^18.0.0",
     "puppeteer": "^3.0.1"
   },
   "name": "starting-react-native-2020",
