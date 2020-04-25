@@ -11,5 +11,8 @@
     "mdx-deck": "3.0.13",
     "puppeteer": "^3.0.1"
   },
-  "name": "starting-react-native-2020"
+  "name": "starting-react-native-2020",
+  "dependencies": {
+    "react-native-web": "^0.12.2"
+  }
 }
